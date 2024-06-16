@@ -493,7 +493,8 @@ if __name__ == '__main__':
         show_100.click() 
     except Exception as ex:
         print(f"btc_driver_last hit error: {ex}")
-    time.sleep(2)
+
+    time.sleep(22)
 
 
     # ------------開始爬蟲程序------------

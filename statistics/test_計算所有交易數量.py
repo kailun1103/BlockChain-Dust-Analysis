@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 csv.field_size_limit(2147483647)
 
-csv_file_path = 'step4 資料清洗(invalid or amount為0)'
+csv_file_path = '2024_01_18-2024_01_24'
 
 data = []
 
@@ -17,16 +17,14 @@ for root, dirs, files in os.walk(csv_file_path):
         csv_path = os.path.join(root, csv_file)
 
         with open(csv_path, mode='r', newline='', encoding='utf-8') as infile:
-            # print(csv_files)
+            print(csv_file)
             reader = csv.reader(infile)
             header = next(reader)
             count = 0
             for row in reader:
                 count += 1
-                # if int(row[14]) <= 3600 and row[15] == "0":
-                #     count += 1
 
-                
+ 
             total += count
 
 
