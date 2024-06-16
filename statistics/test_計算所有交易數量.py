@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 csv.field_size_limit(2147483647)
 
-csv_file_path = '2024_01_18-2024_01_24'
+csv_file_path = 'temp_cleaned'
 
 data = []
 

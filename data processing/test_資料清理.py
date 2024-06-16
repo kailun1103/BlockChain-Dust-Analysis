@@ -2,7 +2,7 @@ import csv
 import os
 import shutil  # 导入shutil用于移动文件
 
-csv_file_path = 'step4 資料清洗(invalid or amount為0)'  # 指定原始CSV文件的文件夹路径
+csv_file_path = '2024_01_18-2024_01_24'  # 指定原始CSV文件的文件夹路径
 temp_output_path = 'temp_cleaned'  # 临时存储清理后文件的目录
 
 # 如果临时输出目录不存在，则创建该目录
@@ -27,8 +27,6 @@ for root, dirs, files in os.walk(csv_file_path):
 
             # 遍历原始文件中的每一行
             for row in reader:
-                # if row[9] != "Invalid":
-                if row[3] != "0.0":
-                # if row[3] != "0":
+                if row[4] > 75 or row[4] > 75:
                     writer.writerow(row)
 
