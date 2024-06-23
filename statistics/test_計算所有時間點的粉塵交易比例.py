@@ -19,7 +19,7 @@ def parse_datetime(datetime_str):
 
 # Set the maximum field size to avoid field errors
 csv.field_size_limit(2147483647)
-csv_file_path = 'step4 資料清洗(invalid or amount為0)'
+csv_file_path = '2024_01_18-2024_01_24 - 資料集'
 
 # Dictionary to hold hourly counts
 hourly_counts = {hour: 0 for hour in range(24)}
@@ -28,6 +28,7 @@ hourly_counts = {hour: 0 for hour in range(24)}
 for root, dirs, files in os.walk(csv_file_path):
     csv_files = [file for file in files if file.endswith('.csv')]
     for csv_file in csv_files:
+        print(csv_file)
         csv_path = os.path.join(root, csv_file)
         with open(csv_path, mode='r', newline='', encoding='utf-8') as infile:
             reader = csv.reader(infile)

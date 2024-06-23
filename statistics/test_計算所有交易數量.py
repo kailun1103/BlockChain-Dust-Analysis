@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 csv.field_size_limit(2147483647)
 
-csv_file_path = 'temp_cleaned'
+csv_file_path = '2024_01_18-2024_01_24 - 資料集'
 
 data = []
 
@@ -22,7 +22,9 @@ for root, dirs, files in os.walk(csv_file_path):
             header = next(reader)
             count = 0
             for row in reader:
-                count += 1
+                if (int(row[14]) > 3600 or row[9] == 'Pending'):
+                    if int(row[15]) == 1:
+                        count += 1
 
  
             total += count
