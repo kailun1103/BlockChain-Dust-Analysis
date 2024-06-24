@@ -22,9 +22,7 @@ for root, dirs, files in os.walk(csv_file_path):
             header = next(reader)
             count = 0
             for row in reader:
-                if (int(row[14]) > 3600 or row[9] == 'Pending'):
-                    if int(row[15]) == 1:
-                        count += 1
+                count += 1
 
  
             total += count

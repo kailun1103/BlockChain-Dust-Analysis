@@ -405,8 +405,6 @@ def btc_crawler(btc_driver_first, btc_driver_second, btc_driver_third, btc_drive
             print(f"BTC總交易數量為 {btc_pending_txn_count} 條交易")
             print(f'BTC目前時間為: {system_time}')
             print("----------------------------------------")
-
-        # print('本次沒抓到東西')
     
     except Exception as ex:
         print(f"Failed reason: {ex}")
@@ -414,8 +412,6 @@ def btc_crawler(btc_driver_first, btc_driver_second, btc_driver_third, btc_drive
 
 
 
-# def run_crawler(btc_driver_first, btc_driver_second, btc_driver_third, btc_driver_four, btc_driver_five, btc_driver_six, btc_driver_seven, btc_driver_eight, btc_driver_last, hashes_seen, header_written):
-#     btc_crawler(btc_driver_first, btc_driver_second, btc_driver_third, btc_driver_four, btc_driver_five, btc_driver_six, btc_driver_seven, btc_driver_eight, btc_driver_last, hashes_seen, header_written)
 
 
 if __name__ == '__main__':
@@ -442,6 +438,7 @@ if __name__ == '__main__':
     btc_driver_second.get('https://explorer.btc.com/btc/unconfirmed-txs')
     btc_driver_second.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     try:
+        # 點擊一次顯示100頁
         # page_opthon = WebDriverWait(btc_driver_second, 20).until(
         #     EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/div'))
         # )
@@ -462,39 +459,138 @@ if __name__ == '__main__':
 
     btc_driver_third = webdriver.Chrome() # btc_driver_second 抓取 btc.com第三頁交易資訊
     btc_driver_third.get('https://explorer.btc.com/btc/unconfirmed-txs')
+    btc_driver_third.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_3 = WebDriverWait(btc_driver_third, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[4]/button'))
+    )
+    page_3.click() 
+    time.sleep(2)
 
     btc_driver_four = webdriver.Chrome() # btc_driver_second 抓取 btc.com第四頁交易資訊
     btc_driver_four.get('https://explorer.btc.com/btc/unconfirmed-txs')
+    btc_driver_four.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_4 = WebDriverWait(btc_driver_four, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[5]/button'))
+    )
+    page_4.click() 
+    time.sleep(2)
 
     btc_driver_five = webdriver.Chrome() # btc_driver_second 抓取 btc.com第五頁交易資訊
     btc_driver_five.get('https://explorer.btc.com/btc/unconfirmed-txs')
+    btc_driver_five.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_5 = WebDriverWait(btc_driver_five, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[5]/button'))
+    )
+    page_5.click()
+    btc_driver_five.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    time.sleep(2)
+    page_5 = WebDriverWait(btc_driver_five, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_5.click() 
+    time.sleep(2)
 
     btc_driver_six = webdriver.Chrome() # btc_driver_second 抓取 btc.com第六頁交易資訊
     btc_driver_six.get('https://explorer.btc.com/btc/unconfirmed-txs')
+    btc_driver_six.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_6 = WebDriverWait(btc_driver_six, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[5]/button'))
+    )
+    page_6.click()
+    time.sleep(2)
+    btc_driver_six.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    page_6 = WebDriverWait(btc_driver_six, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_6.click()
+    btc_driver_six.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    page_6 = WebDriverWait(btc_driver_six, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_6.click() 
+    time.sleep(2)
 
     btc_driver_seven = webdriver.Chrome() # btc_driver_second 抓取 btc.com第七頁交易資訊
     btc_driver_seven.get('https://explorer.btc.com/btc/unconfirmed-txs')
+    btc_driver_seven.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_7 = WebDriverWait(btc_driver_seven, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[5]/button'))
+    )
+    page_7.click()
+    time.sleep(2)
+    btc_driver_seven.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_7 = WebDriverWait(btc_driver_seven, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_7.click()
+    time.sleep(2)
+    btc_driver_seven.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_7 = WebDriverWait(btc_driver_seven, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_7.click() 
+    time.sleep(2)
+    btc_driver_seven.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_7 = WebDriverWait(btc_driver_seven, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_7.click() 
+    time.sleep(2)
 
     btc_driver_eight = webdriver.Chrome() # btc_driver_second 抓取 btc.com第八頁交易資訊
     btc_driver_eight.get('https://explorer.btc.com/btc/unconfirmed-txs')
-
+    btc_driver_eight.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_8 = WebDriverWait(btc_driver_eight, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[5]/button'))
+    )
+    page_8.click()
+    time.sleep(2)
+    btc_driver_eight.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_8 = WebDriverWait(btc_driver_eight, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_8.click()
+    time.sleep(2)
+    btc_driver_eight.execute_script("window.scrollTo(0, document.body.scrollHeight);")  
+    page_8 = WebDriverWait(btc_driver_eight, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_8.click()
+    time.sleep(2)
+    btc_driver_eight.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_8 = WebDriverWait(btc_driver_eight, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_8.click()
+    time.sleep(2)
+    btc_driver_eight.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
+    page_8 = WebDriverWait(btc_driver_eight, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[6]/button'))
+    )
+    page_8.click()
+    time.sleep(2)
 
     btc_driver_last = webdriver.Chrome()
     btc_driver_last.get('https://explorer.btc.com/btc/unconfirmed-txs')
     btc_driver_last.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    try:
-        page_opthon = WebDriverWait(btc_driver_last, 20).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/div'))
-        )
-        page_opthon.click()
-        show_100 = WebDriverWait(btc_driver_last, 20).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="btccom-ui-dropdown"]/div/div/div[4]'))
-        )
-        show_100.click() 
-    except Exception as ex:
-        print(f"btc_driver_last hit error: {ex}")
+    page_last = WebDriverWait(btc_driver_second, 20).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/li[8]/button'))
+    )
+    page_last.click() 
+    time.sleep(2)
+    # try:
+    #     一次顯示100頁
+    #     page_opthon = WebDriverWait(btc_driver_last, 20).until(
+    #         EC.presence_of_element_located((By.XPATH, '//*[@id="__next"]/div[1]/div[2]/div[5]/nav/div'))
+    #     )
+    #     page_opthon.click()
+    #     show_100 = WebDriverWait(btc_driver_last, 20).until(
+    #         EC.presence_of_element_located((By.XPATH, '//*[@id="btccom-ui-dropdown"]/div/div/div[4]'))
+    #     )
+    #     show_100.click() 
+    # except Exception as ex:
+    #     print(f"btc_driver_last hit error: {ex}")
 
-    time.sleep(22)
 
 
     # ------------開始爬蟲程序------------
@@ -533,8 +629,4 @@ if __name__ == '__main__':
         print(f'已經過 {count+1} 小時，第 {count+1} 次儲存')
         count += 1
 
-    print("Done BTX Web Data Scraping")
-
-    btc_driver_first.quit()
-    btc_driver_second.quit()
-    btc_driver_last.quit()
+print("Done BTX Web Data Scraping")
